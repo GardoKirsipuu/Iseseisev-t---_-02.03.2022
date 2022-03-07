@@ -10,16 +10,16 @@ export const PaidVacationDaysService = (): PaidVacationDaysServiceData => {
     
     let days = 22;
     
-    if ((age >= 45 && age < 60) || (service >= 15 && service < 30)) {
-      days = days + 2;
-    }
-    
     if (age < 18 || age >= 60 || service >= 30) {
       days = days + 5;
     }
     
     if (age >= 60 && service >= 30) {
       days = days + 3;
+    }
+
+    if ((age >= 45 && age < 60 && days == 22) || (service >= 15 && service < 30 && days == 22)) {
+      days = days + 2;
     }
     
     return days;
