@@ -9,8 +9,16 @@ export const NetSalaryService = (): NetSalaryServiceData => {
 
         if (isNaN(salary)) return undefined;
 
-        if (salary > 500) {
-            salary = (salary - 500) * 0.8 + 500;
+        if (salary * 12 <= 14400) {
+            salary = salary - 150
+        }
+
+        if (salary * 12 > 14400 && salary * 12 < 25200) {
+            salary = salary - 300
+        }
+
+        if (salary * 12 >= 25200) {
+            salary = salary - 600
         }
 
         return Math.round(salary * 100) / 100;
